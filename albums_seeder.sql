@@ -1,3 +1,4 @@
+SELECT 'Using code_up_db' AS 'USE statement';
 USE codeup_test_db;
 TRUNCATE albums;
 INSERT INTO albums (artist, name, release_date, sales, genre)
