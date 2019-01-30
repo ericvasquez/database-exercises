@@ -43,6 +43,7 @@ WHERE (first_name LIKE '%Irena%'
 
 -- Find all employees whose last name starts or ends with 'E' — 30,723 rows.
 -- Update your queries for employees with 'E' in their last name to sort the results by their employee number. Your results should not change!
+#Update your queries for employees whose names start and end with 'E'. Use concat() to combine their first and last name together as a single column in your results.
 SELECT CONCAT(first_name,' ', last_name)
 FROM employees
 WHERE last_name LIKE 'E%'
@@ -68,6 +69,7 @@ WHERE last_name LIKE 'E%'
 ORDER BY emp_no DESC;
 
 -- Find all employees hired in the 90s and born on Christmas — 362 rows.
+#For your query of employees born on Christmas and hired in the 90s, use datediff() to find how many days they have been working at the company (Hint: You will also need to use now() or curdate())
 SELECT CONCAT(first_name,' ', last_name), DATEDIFF(now(), hire_date)AS 'Days Working at the Company'
 FROM employees
 WHERE (hire_date BETWEEN '1990-01-01' AND '1999-12-31')
