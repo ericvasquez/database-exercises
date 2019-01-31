@@ -32,7 +32,9 @@ WHERE last_name LIKE '%q%'
 GROUP BY last_name;
 
 # Update your query for 'Irena', 'Vidya', or 'Maya'. Use count(*) and GROUP BY to find the number of employees for each gender with those names.
-SELECT gender, COUNT(*)
+SELECT  COUNT(*), gender
 FROM employees
-WHERE (first_name LIKE '%Irena%' OR first_name LIKE '%Vidya%' OR first_name LIKE '%Maya%')
+WHERE first_name LIKE '%Irena%'
+   OR first_name LIKE '%Vidya%'
+   OR first_name LIKE '%Maya%'
 GROUP BY gender;
