@@ -1,14 +1,12 @@
 USE employees;
 
-
 #Using the example in the Associative Table Joins section as a guide, write a query that shows each department along with the name of the current manager for that department.
-SELECT dept_name AS 'Department Name', CONCAT(employees.first_name, employees.last_name) AS 'Department Manager'
-FROM dept_manager
+SELECT dept_name AS 'Department Name', CONCAT(first_name, last_name) AS 'Department Manager'
+FROM employees
+JOIN dept_manager ON dept_manager.emp_no = employees.emp_no
 JOIN departments ON departments.dept_no = dept_manager.dept_no
-JOIN employees ON employees.emp_no = dept_manager.emp_no
 WHERE to_date > now()
 ORDER BY dept_name;
-
 
 # Find the name of all departments currently managed by women.
 SELECT dept_name AS 'Department Name', CONCAT(employees.first_name, ' ', employees.last_name) AS 'Manager Name'
@@ -38,9 +36,13 @@ WHERE salaries.to_date > now() AND dept_manager.to_date>now()
 ORDER BY dept_name;
 
 # Bonus Find the names of all current employees, their department name, and their current manager's name.
-SELECT CONCAT(first_name, ' ', last_name) AS 'Employee Name', dept_name AS 'Department Name', CONCAT(dept_manager.emp_no, ' ', dept_manager.dept_no) AS 'Manager Name'
+SELECT CONCAT(employees.first_name, ' ', employees.last_name) AS 'Employee Name', dept_name AS 'Department Name', CONCAT(managers.first_name, ' ', managers.last_name) AS 'Manager Name'
 FROM employees
 JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
 JOIN departments ON departments.dept_no = dept_emp.dept_no
 JOIN dept_manager ON dept_manager.dept_no = departments.dept_no
+JOIN employees AS managers ON managers.emp_no = dept_manager.emp_no
 WHERE dept_emp.to_date>now() AND dept_manager.to_date>now();
+
+
+
