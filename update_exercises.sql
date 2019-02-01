@@ -14,7 +14,7 @@ FROM albums
 WHERE artist LIKE '%Michael Jackson%';
 
 
---Make all the albums 10 times more popular (sales * 10)
+-- Make all the albums 10 times more popular (sales * 10)
 UPDATE albums SET sales = sales*10;
 SELECT * FROM albums;
 

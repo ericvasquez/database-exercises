@@ -1,6 +1,6 @@
 USE employees;
 
--- List the first 10 distinct last name sorted in descending order.
+--List the first 10 distinct last name sorted in descending order.
 
 SELECT DISTINCT last_name
 FROM employees

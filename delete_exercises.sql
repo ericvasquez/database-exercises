@@ -10,7 +10,7 @@ SELECT * AS 'The name of all albums by Whitney Houston'
 FROM albums WHERE artist LIKE '%Whitney Houston%';
 
 
--- Deletes album
+--  Deletes album
 DELETE FROM albums
 WHERE release_date >1991;
 
